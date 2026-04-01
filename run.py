@@ -7,13 +7,13 @@ Run this file to start the Flask server that serves:
 """
 
 import os
-
 from backend.app import create_app
 
+# ✅ CREATE APP AT GLOBAL LEVEL
+app = create_app()
 
+# Optional local run
 if __name__ == "__main__":
-    app = create_app()
     host = os.getenv("HOST", "127.0.0.1")
     port = int(os.getenv("PORT", "5000"))
     app.run(host=host, port=port, debug=app.config.get("DEBUG", False))
-
